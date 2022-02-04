@@ -1,22 +1,71 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import fs from 'fs'
+import path from 'path'
+import imageSize from 'image-size'
 
 export async function getServerSideProps(context) {
 
+  const basepath = "./public/photos";
+  // fs.readdirSync(path);
+  
+  // console.log(fs.readdirSync(path));
+  const files = fs.readdirSync(basepath);
+  const randomFile = Math.floor(Math.random() * 3);
+  const currentFile = files[randomFile];
+
+
+
+
+
+
+
+  const file_paths = files.map((filePath) => {
+    let rObj = {};
+    rObj.abs = path.join(basepath, filePath);
+    rObj.file = filePath;
+    let dimensions = imageSize(rObj.abs);
+    rObj.width = dimensions.width;
+    rObj.height = dimensions.height;
+    rObj.public = path.posix.join("/","photos", filePath);
+    return rObj;
+  });
+  // console.log(file_paths);
+
+
+  const publicPath = path.posix.join("/","photos", currentFile);
+  const absolutePath = path.join(basepath, currentFile);
+  const dimensions = imageSize(absolutePath);
+
   const img = { 
-    address: "/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg"
+    index: randomFile,
+    file: currentFile,
+    public: publicPath,
+    absolute: absolutePath,
+    dimensions: dimensions
+    // address: "/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg"
   }
+
+  console.log(img);
 
   return {
     props: {
-      img
+      img,
+      file_paths
     }
   }
 }
 
-export default function Home({img}) {
-  console.log("img: " + JSON.stringify({img}));
+export default function Home({img, file_paths}) {
+  // console.log("img: " + JSON.stringify({img}));
+
+  // const myindex = Math.floor(Math.random() * 3)
+  // console.log("Index: " + myindex);
+
+  // const currentImage = file_paths[myindex];
+  // console.log("My Image: " + JSON.stringify({currentImage}));
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,7 +75,8 @@ export default function Home({img}) {
       </Head>
       <main>
         <div style={{padding: "10px", textAlign: "center"}}>
-          <Image src={img.address} alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image>
+          {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
+          <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image>
           {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
         </div>        
       </main>
