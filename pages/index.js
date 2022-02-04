@@ -11,9 +11,13 @@ export async function getServerSideProps(context) {
   // fs.readdirSync(path);
   
   // console.log(fs.readdirSync(path));
+
+  // glob: https://www.npmjs.com/package/glob
+
   const files = fs.readdirSync(basepath);
   const randomFile = Math.floor(Math.random() * 3);
   const currentFile = files[randomFile];
+  // const currentFile = files[2];
 
 
 
@@ -74,10 +78,11 @@ export default function Home({img, file_paths}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div style={{padding: "10px", textAlign: "center"}}>
+        <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
           {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
-          <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image>
           {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
+          {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image> */}
+          <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image>
         </div>        
       </main>
     </div>
