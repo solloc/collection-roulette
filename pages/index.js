@@ -7,7 +7,9 @@ import imageSize from 'image-size'
 
 export async function getServerSideProps(context) {
 
-  const basepath = "./public/photos";
+  // const basepath = "./public/photos";
+  const imgfolder = "photos2";
+  const basepath = path.join("public",imgfolder);
   // fs.readdirSync(path);
   
   // console.log(fs.readdirSync(path));
@@ -15,7 +17,7 @@ export async function getServerSideProps(context) {
   // glob: https://www.npmjs.com/package/glob
 
   const files = fs.readdirSync(basepath);
-  const randomFile = Math.floor(Math.random() * 3);
+  const randomFile = Math.floor(Math.random() * files.length);
   const currentFile = files[randomFile];
   // const currentFile = files[2];
 
@@ -25,21 +27,22 @@ export async function getServerSideProps(context) {
 
 
 
-  const file_paths = files.map((filePath) => {
-    let rObj = {};
-    rObj.abs = path.join(basepath, filePath);
-    rObj.file = filePath;
-    let dimensions = imageSize(rObj.abs);
-    rObj.width = dimensions.width;
-    rObj.height = dimensions.height;
-    rObj.public = path.posix.join("/","photos", filePath);
-    return rObj;
-  });
+  // const file_paths = files.map((filePath) => {
+  //   let rObj = {};
+  //   rObj.abs = path.join(basepath, filePath);
+  //   rObj.file = filePath;
+  //   let dimensions = imageSize(rObj.abs);
+  //   rObj.width = dimensions.width;
+  //   rObj.height = dimensions.height;
+  //   rObj.public = path.posix.join("/","photos", filePath);
+  //   return rObj;
+  // });
   // console.log(file_paths);
 
 
-  const publicPath = path.posix.join("/","photos", currentFile);
+  const publicPath = path.posix.join("/",imgfolder, currentFile);
   const absolutePath = path.join(basepath, currentFile);
+  console.log("Absolut path: " + absolutePath); 
   const dimensions = imageSize(absolutePath);
 
   const img = { 
@@ -55,8 +58,8 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      img,
-      file_paths
+      img
+      // file_paths
     }
   }
 }
@@ -82,8 +85,12 @@ export default function Home({img, file_paths}) {
           {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
           {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
           {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image> */}
-          <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image>
+          {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image> */}
+          <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image>
         </div>        
+        <div style={{ width: "100%", textAlign: "center"}}>
+          #{img.index}
+        </div>
       </main>
     </div>
   )
