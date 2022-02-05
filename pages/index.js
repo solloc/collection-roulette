@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import fs from 'fs'
 import path from 'path'
 import imageSize from 'image-size'
+import Link from 'next/link'
 
 export async function getServerSideProps(context) {
 
@@ -82,14 +83,24 @@ export default function Home({img, file_paths}) {
       </Head>
       <main>
         <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
+            <Link href={"/post/" + img.file}>
+              <a>{img.file}</a>            
+            </Link>
+
           {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
           {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
           {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image> */}
           {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image> */}
-          <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image>
+          {/* <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image> */}
         </div>        
         <div style={{ width: "100%", textAlign: "center"}}>
-          #{img.index}
+          <div>#{img.index}</div>
+          <div>
+          {/* <Link href={"/post/" + img.file}>
+              <a>{img.file}</a>            
+            </Link> */}
+          </div>
+
         </div>
       </main>
     </div>
