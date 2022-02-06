@@ -83,7 +83,8 @@ export default function Home({img, file_paths}) {
       </Head>
       <main>
         <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
-            <Link href={"/post/" + img.file}>
+            {/* <Link href={"/post/" + img.file}> */}
+            <Link href={"/post/1"}>
               <a>{img.file}</a>            
             </Link>
 
