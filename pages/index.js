@@ -1,79 +1,15 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import fs from 'fs'
-import path from 'path'
-import imageSize from 'image-size'
 import Link from 'next/link'
 
 export async function getServerSideProps(context) {
 
-  // const basepath = "./public/photos";
-  const imgfolder = "photos2";
-  const basepath = path.join("public",imgfolder);
-  // fs.readdirSync(path);
-  
-  // console.log(fs.readdirSync(path));
-
-  // glob: https://www.npmjs.com/package/glob
-
-  const files = fs.readdirSync(basepath);
-  const randomFile = Math.floor(Math.random() * files.length);
-  const currentFile = files[randomFile];
-  // const currentFile = files[2];
-
-
-
-
-
-
-
-  // const file_paths = files.map((filePath) => {
-  //   let rObj = {};
-  //   rObj.abs = path.join(basepath, filePath);
-  //   rObj.file = filePath;
-  //   let dimensions = imageSize(rObj.abs);
-  //   rObj.width = dimensions.width;
-  //   rObj.height = dimensions.height;
-  //   rObj.public = path.posix.join("/","photos", filePath);
-  //   return rObj;
-  // });
-  // console.log(file_paths);
-
-
-  const publicPath = path.posix.join("/",imgfolder, currentFile);
-  const absolutePath = path.join(basepath, currentFile);
-  console.log("Absolut path: " + absolutePath); 
-  const dimensions = imageSize(absolutePath);
-
-  const img = { 
-    index: randomFile,
-    file: currentFile,
-    public: publicPath,
-    absolute: absolutePath,
-    dimensions: dimensions
-    // address: "/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg"
-  }
-
-  console.log(img);
-
   return {
-    props: {
-      img
-      // file_paths
-    }
-  }
+    props: {}
+  };
 }
 
-export default function Home({img, file_paths}) {
-  // console.log("img: " + JSON.stringify({img}));
-
-  // const myindex = Math.floor(Math.random() * 3)
-  // console.log("Index: " + myindex);
-
-  // const currentImage = file_paths[myindex];
-  // console.log("My Image: " + JSON.stringify({currentImage}));
-
+export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
@@ -83,26 +19,10 @@ export default function Home({img, file_paths}) {
       </Head>
       <main>
         <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
-            {/* <Link href={"/post/" + img.file}> */}
-            <Link href={"/post/1"}>
-              <a>{img.file}</a>            
+            <Link href="/post/random">
+              <a>random</a>            
             </Link>
-
-          {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
-          {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
-          {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image> */}
-          {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image> */}
-          {/* <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image> */}
         </div>        
-        <div style={{ width: "100%", textAlign: "center"}}>
-          <div>#{img.index}</div>
-          <div>
-          {/* <Link href={"/post/" + img.file}>
-              <a>{img.file}</a>            
-            </Link> */}
-          </div>
-
-        </div>
       </main>
     </div>
   )
