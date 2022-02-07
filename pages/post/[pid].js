@@ -11,7 +11,7 @@ export async function getStaticProps({ params }) {
 
     // console.log("Context:" + context);
 
-    const randomImg = Posts.getRandomPost();
+    // const randomImg = Posts.getRandomPost();
 
 
     // if (context) {
@@ -19,24 +19,23 @@ export async function getStaticProps({ params }) {
     //         if(context['params']['pid']) {
             
         
-    if (params.pid === `random`) {
-        console.log('random');
-        return {
-            redirect: {
-                destination: `/post/${randomImg.pid}`,
-                permanent: false
-            },
-            revalidate: 1
-        }
-    }
+    // if (params.pid === `random`) {
+    //     console.log('random');
+    //     return {
+    //         redirect: {
+    //             destination: `/post/${randomImg.pid}`,
+    //             permanent: false
+    //         },
+    //         revalidate: 1
+    //     }
+    // }
     
     let img = Posts.getPost(params.pid); 
     // let img = Posts.getRandomPost();
 
     return {
         props: {
-            img,
-            randomImg
+            img
         }
     };    
             // }
@@ -54,7 +53,7 @@ export async function getStaticProps({ params }) {
 
 }
 
-export default function Post({ img, randomImg }) {
+export default function Post({ img }) {
 
     // const router = useRouter();
     // router.push(`/post/${img.pid}`);
@@ -82,11 +81,11 @@ export default function Post({ img, randomImg }) {
             </div>        
             <div style={{ width: "100%", textAlign: "center"}}>
             {/* <div>#{img.index}</div> */}
-            <div>
+            {/* <div>
                 <Link href={"/post/" + randomImg.pid}>
                     <a>NEXT</a>            
                 </Link>
-            </div>
+            </div> */}
 
             </div>
         </main>
@@ -100,6 +99,8 @@ export async function getStaticPaths() {
     const paths = posts.map((post) => ({
         params: { pid: `${post.pid}` }
     }));
+    // const paths = [];
+
     // paths.push({
     //     params: { pid: `random` }
     // });

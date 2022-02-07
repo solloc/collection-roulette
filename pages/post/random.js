@@ -1,5 +1,5 @@
 // import { useRouter } from 'next/router';
-// import * as Post from '../../lib/post'
+import * as Post from '../../lib/post'
 
 // export async function getStaticProps() {
 //     return {
@@ -9,6 +9,19 @@
 //         }
 //     }
 // }
+
+export async function getServerSideProps(context) {
+
+    const randomPost = Post.getRandomPost();
+
+    return {
+        redirect: {
+            destination: `/post/${randomPost.pid}`,
+            permanent: false
+        },
+        // revalidate: 1
+    }
+}
 
 export default function Random() {
     return <></>;
