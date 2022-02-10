@@ -74,7 +74,7 @@ export default function Post({ img }) {
         <main>
             <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
             {/* <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image> */}
-            <img src={img.public} />
+            <img src={img.public} style={{maxHeight:"100%", maxWidth:"100%"}} />
             </div>        
             <div style={{ width: "100%", textAlign: "center"}}>
             {/* <div>#{img.index}</div> */}
