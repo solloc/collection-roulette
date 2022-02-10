@@ -73,11 +73,8 @@ export default function Post({ img }) {
         </Head>
         <main>
             <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
-            {/* <Image src={currentImage.public} alt="" width={currentImage.width} height={currentImage.height} layout='' objectFit=''></Image> */}
-            {/* <Image src="/photos/mileena_s_secret_workout__mortal_kombat__by_pactdart_dezd2c2-pre.jpg" alt="" width={"730px"} height={"1095px"} layout='' objectFit=''></Image> */}
-            {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout='' objectFit=''></Image> */}
-            {/* <Image src={img.public} alt="" width={img.dimensions.width} height={img.dimensions.height} layout="fill" objectFit='contain'></Image> */}
-            <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image>
+            {/* <Image src={img.public} alt="" layout="fill" objectFit='contain'></Image> */}
+            <img src={img.public} />
             </div>        
             <div style={{ width: "100%", textAlign: "center"}}>
             {/* <div>#{img.index}</div> */}
