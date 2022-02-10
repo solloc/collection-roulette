@@ -12,7 +12,7 @@
             //     "<node_internals>/**"
             // ],
             // "program": "${file}"
-            "command": "npm run dev"
+            "command": "yarn dev"
         }
     ]
 }
