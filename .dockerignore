@@ -10,4 +10,5 @@ README.md
 .gitignore
 Dockerfile*
 *.tar
-public/data_test_more
+public/data_*
+public/data/*

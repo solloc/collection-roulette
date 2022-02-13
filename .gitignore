@@ -10,6 +10,7 @@
 
 # test data
 /public/data*
+/data
 
 # next.js
 /.next/
