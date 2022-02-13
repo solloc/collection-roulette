@@ -8,10 +8,10 @@ services:
     # environment:
       # - NODE_ENV=test
     volumes:
-      - D:\Workspaces\picture-browser\data:/app/data
+      - .\data:/app/data
   web:
     image: nginx
     ports:
       - "8080:80"
     volumes:
-      - D:\Workspaces\picture-browser\data:/usr/share/nginx/html
+      - .\data:/usr/share/nginx/html
