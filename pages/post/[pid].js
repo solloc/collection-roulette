@@ -94,11 +94,12 @@ export default function Post({ img }) {
 
 export async function getStaticPaths() {
 
-    const posts = Posts.getPosts();
-    const paths = posts.map((post) => ({
-        params: { pid: `${post.pid}` }
-    }));
-    // const paths = [];
+    // const posts = Posts.getPosts();
+    // const paths = posts.map((post) => ({
+    //     params: { pid: `${post.pid}` }
+    // }));
+
+    const paths = [];
 
     // paths.push({
     //     params: { pid: `random` }
@@ -106,6 +107,6 @@ export async function getStaticPaths() {
 
     return {
         paths,
-        fallback: true
+        fallback: 'blocking',
     };
 }
