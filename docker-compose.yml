@@ -2,8 +2,10 @@ version: '3.7'
 
 services:
   app:
-    image: picture-browser:0.0.21
+    image: picture-browser:0.0.24
     ports:
      - 3000:3000
-    environment:
-      - NODE_ENV=test
+    # environment:
+      # - NODE_ENV=test
+    volumes:
+      - D:\Workspaces\picture-browser\data:/app/data
