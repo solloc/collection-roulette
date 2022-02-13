@@ -22,6 +22,12 @@ export default function Home() {
             <Link href="/post/random">
               <a>random</a>            
             </Link>
+            <p></p>
+            <div>
+              <form action='/api/reindex' method='post'>
+                <button type='submit'>reindex</button>
+              </form>
+            </div>
         </div>        
       </main>
     </div>
