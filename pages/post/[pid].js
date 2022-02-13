@@ -1,8 +1,8 @@
 import Head from "next/head";
 import styles from '../../styles/Home.module.css'
-import Image from "next/image";
+// import Image from "next/image";
 import * as Posts from '../../lib/post';
-import Link from "next/link";
+// import Link from "next/link";
 import { useRouter } from "next/router";
 // import { Router, useRouter } from "next/router";
 
