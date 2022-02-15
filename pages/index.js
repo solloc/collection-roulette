@@ -18,7 +18,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <div style={{padding: "10px", textAlign: "center", height: "90vh", border: 10, borderStyle: 'solid', position: "relative"}}>
+        <div style={{textAlign: "center", height: "90vh", position: "relative"}}>
             <Link href="/post/random">
               <a>random</a>            
             </Link>
