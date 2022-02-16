@@ -1,9 +1,12 @@
 import * as Post from '../../lib/post';
 import fs from 'fs';
+import sleep from 'atomic-sleep';
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 
 export default function handler(req, res) {
-    // res.status(200).json({ name: 'John Doe' })
+
+    if (process.env.NODE_ENV == 'development') sleep(3000);
+
     const posts = Post.findPosts();
     const posts_s = JSON.stringify(posts);
 
