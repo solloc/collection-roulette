@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import ReindexButton from '../components/ReindexButton';
 
 export async function getServerSideProps(context) {
 
@@ -24,9 +25,7 @@ export default function Home() {
             </Link>
             <p></p>
             <div>
-              <form action='/api/reindex' method='post'>
-                <button type='submit'>reindex</button>
-              </form>
+              <ReindexButton />
             </div>
         </div>        
       </main>

@@ -17,5 +17,6 @@ export default function handler(req, res) {
     fs.writeFileSync('./.pp/posts.json', posts_s)
     fs.writeFileSync('./.pp/postcount.txt', `${posts.length}`);
     
-    res.redirect('/', 307)
+    // res.redirect('/', 307)
+    res.status(200).json({ message: 'reindexed' });
 }
