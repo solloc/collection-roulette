@@ -89,6 +89,7 @@ export default function Post({ img }) {
             <div style={{alignItems: "end", justifyContent: "center", display: "flex", height: "10vh"}}>
                 <RandomButton />                
             </div>
+            <Script src="/listenToRandomKey.js" />
         </div>
     )
 }
