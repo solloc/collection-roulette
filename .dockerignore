@@ -12,3 +12,4 @@ Dockerfile*
 *.tar
 public/data_*
 public/data/*
+temp
