@@ -12,11 +12,11 @@ import * as Post from '../../lib/post'
 
 export async function getServerSideProps(context) {
 
-    const randomPost = Post.getRandomPost();
+    const randomPostID = await Post.getRandomPost();
 
     return {
         redirect: {
-            destination: `/post/${randomPost.pid}`,
+            destination: `/post/${randomPostID}`,
             permanent: false
         },
         // revalidate: 1

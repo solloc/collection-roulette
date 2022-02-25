@@ -32,7 +32,7 @@ export async function getStaticProps({ params }) {
     //     }
     // }
     
-    let img = Posts.getPost(params.pid); 
+    let img = await Posts.getPost(params.pid); 
     // let img = Posts.getRandomPost();
 
     return {
