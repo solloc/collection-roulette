@@ -43,7 +43,7 @@ export default async function handler(req, res) {
 
     if (process.env.NODE_ENV == 'development') sleep(3000);
 
-    Post.findPosts();
+    await Post.findPosts();
     // const posts = Post.findPosts();
     // const posts_s = JSON.stringify(posts);
 
