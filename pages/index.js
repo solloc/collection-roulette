@@ -12,7 +12,7 @@ export async function getServerSideProps(context) {
 
 export default function Home() {
 
-  console.log(process.env.DATABASE_URL);
+  console.log(`DB URL: ${process.env.DATABASE_URL}`);
 
   return (
     <div className={styles.container}>
