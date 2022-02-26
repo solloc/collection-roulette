@@ -9,6 +9,7 @@ services:
       # - NODE_ENV=test
     volumes:
       - .\data:/app/data
+      - .\picture-browser:/app/picture-browser
   web:
     image: nginx
     ports:
