@@ -39,3 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Export Docker Image to file
 
 docker image save picture-browser -o picture-browser.tar
+
+## Permissions for mounted volumes on Synology DiskStation
+
+To give read/write access, the group SYSTEM requires read/write access
