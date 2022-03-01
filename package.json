@@ -1,5 +1,5 @@
 {
-  "name": "picture-browser",
+  "name": "collection-roulette",
   "private": true,
   "scripts": {
     "dev": "next dev",
