@@ -29,9 +29,9 @@ FROM node:16-alpine AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-ENV IMAGE_FOLDER=data
+ENV IMAGE_FOLDER=data/files
 ENV IMAGE_BASE=http://localhost:8080
-ENV DATABASE_URL="file:/app/picture-browser/picture-browser.db"
+ENV DATABASE_URL="file:/app/data/db/cr.db"
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
 
@@ -56,8 +56,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 # RUN mkdir ./.pp
 # RUN chown nextjs:nodejs ./.pp
 
-RUN mkdir ./picture-browser
-RUN chown nextjs:nodejs ./picture-browser
+RUN mkdir -p ./data/db
+RUN chown nextjs:nodejs ./data/db
 
 USER nextjs
 

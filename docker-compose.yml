@@ -2,14 +2,14 @@ version: '3.7'
 
 services:
   app:
-    image: picture-browser:latest
+    image: collection-roulette:latest
     ports:
      - 3000:3000
     # environment:
       # - NODE_ENV=test
     volumes:
-      - .\data:/app/data
-      - .\picture-browser:/app/picture-browser
+      - .\data\files:/app/data/files
+      - .\data\db:/app/data/db
   web:
     image: nginx
     ports:
