@@ -15,3 +15,7 @@ Really really reaaally early prototyping. The project basically helps discoverin
 ### Permissions for mounted volumes on Synology DiskStation
 
 To give read/write access, the group `SYSTEM` requires read/write access
+
+### Install dependencies
+
+`lerna bootstrap`
