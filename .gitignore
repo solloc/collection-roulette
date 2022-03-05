@@ -10,10 +10,10 @@
 
 # test data
 /public/data*
-/data
+/**/data
 
 # next.js
-/.next/
+/**/.next/
 /out/
 
 # production

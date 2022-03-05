@@ -6,5 +6,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "dev": "cd packages/client && next dev"
+  }
 }
