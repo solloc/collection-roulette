@@ -1,0 +1,12 @@
+{
+  "name": "collection-roulette-server",
+  "version": "0.0.0",
+  "description": "collection roulette api server",
+  "main": "app.js",
+  "author": "M. Maisch",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
