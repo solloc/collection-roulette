@@ -19,3 +19,9 @@ To give read/write access, the group `SYSTEM` requires read/write access
 ### Install dependencies
 
 `lerna bootstrap`
+
+### Start API server
+
+`cd packages/server`
+
+`SET DEBUG=server:* & npm start`
