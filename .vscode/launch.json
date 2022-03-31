@@ -5,6 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "command": "cd packages/server && npm start",
+            "name": "Start Express",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
             "type": "node-terminal",
             "request": "launch",
             "name": "Next.js DEV",
