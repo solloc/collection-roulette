@@ -4,24 +4,8 @@ Browse trough your collection of media (pictures, videos, documents, ...) mostly
 
 ## Maturity
 
-Really really reaaally early prototyping. The project basically helps discovering some current frameworks or stacks like [Next.js](https://github.com/vercel/next.js), [Prisma](https://github.com/prisma), [Docker](https://github.com/docker), [Express](https://github.com/expressjs)
+Really really reaaally early prototyping. The project basically helps discovering some current frameworks or stacks like [Prisma](https://github.com/prisma), [Docker](https://github.com/docker), [Express](https://github.com/expressjs)
 
 ## Development / Testing / Publishing
 
-### Export Docker Image to file
-
-`docker image save picture-browser -o picture-browser.tar`
-
-### Permissions for mounted volumes on Synology DiskStation
-
-To give read/write access, the group `SYSTEM` requires read/write access
-
-### Install dependencies
-
-`lerna bootstrap`
-
-### Start API server
-
-`cd packages/server`
-
-`SET DEBUG=server:* & npm start`
+Development with latest [node.js](https://nodejs.org/) installed via [Chocolatey](https://chocolatey.org/) on Windows.
