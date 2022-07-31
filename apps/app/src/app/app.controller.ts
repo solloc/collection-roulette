@@ -7,8 +7,9 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @Render('index.hbs')
-  root() {
-    return this.appService.getData();
+  @Render('main.hbs')
+  findAll() {
+    // return this.appService.getData();
+    return { content: 'main' };
   }
 }
