@@ -9,3 +9,8 @@ Really really reaaally early prototyping. The project basically helps discoverin
 ## Development / Testing / Publishing
 
 Development with latest [node.js](https://nodejs.org/) installed via [Chocolatey](https://chocolatey.org/) on Windows.
+
+### Tools
+
+* [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
+* ...
