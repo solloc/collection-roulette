@@ -1,19 +1,12 @@
-    {{!-- <div class="block"></div> --}}
-    {{!-- <div class="block"> --}}
-        <div class="container">
-            <div class="columns">
-                <div class="column">
-                    <div class="block has-text-centered">Count: {{ count }}</div>
-                    <div class="block has-text-centered">Random-Index: {{ randomIndex }}</div>
-                    <div class="block has-text-centered">
-                        <a class="button is-primary" href="/pictures">
-                            <span class="icon">
-                                <i class="fa-solid fa-shuffle"></i>
-                            </span>
-                            <span>Random</span>
-                        </a>
-                    </div>
-                </div>
-            </div>            
+    <div class="container">
+        <div class="block has-text-centered">Count: {{ count }}</div>
+        {{!-- <div class="block has-text-centered">Random-Index: {{ randomIndex }}</div> --}}
+        <div class="block has-text-centered">
+            <a class="button is-primary" href="/pictures/?orderBy=random">
+                <span class="icon">
+                    <i class="fa-solid fa-shuffle"></i>
+                </span>
+                <span>Random</span>
+            </a>
         </div>
-    {{!-- </div> --}}
+    </div>

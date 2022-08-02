@@ -1,28 +1,15 @@
-    <div class="container">
-
-        <div class="block">
-            {{!-- <div class="container"> --}}
-                <figure class="image">
-                    <img src="{{ location }}">
-                </figure>
-            {{!-- </div> --}}
-        </div>
-
-    {{!-- 
+<div class="container">
+    <div class="block has-text-right">
+        <a class="button is-primary" href="/pictures/?orderBy=random">
+            <span class="icon">
+                <i class="fas fa-arrow-right"></i>
+            </span>
+            <span>Next</span>
+        </a>
+    </div>
     <div class="block">
-        Picture {{ location }}
-    </div>
-     --}}
-
-        <div class="block">
-            <div class="container is-flex is-justify-content-center	">
-                <a class="button is-primary" href="/pictures/?orderBy=random">
-                    <span class="icon">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
-                    <span>Next</span>
-                </a>
-            </div>
-        </div>
-
-    </div>
+        <figure class="image">
+            <img src="{{ location }}">
+        </figure>            
+    </div>            
+</div>
