@@ -8,12 +8,10 @@ export class PicturesController {
     constructor(private readonly picturesService : PicturesService) {}
 
     @Get()
-    // @Render('pictures.hbs')
     findAll(@Query('orderBy') orderBy: string, @Res() response : Response) {
 
         if (orderBy && orderBy === 'random') {
             const randomId = this.picturesService.getRandomIndex();
-            console.log(`order by: ${orderBy} => id: ${randomId}`);
             return response.redirect(HttpStatus.FOUND, `/pictures/${randomId}`);
         }
 
@@ -24,11 +22,6 @@ export class PicturesController {
                 count : this.picturesService.getCount() 
             }
         );
-        
-        // return { 
-        //     randomIndex : this.picturesService.getRandomIndex(),
-        //     count : this.picturesService.getCount() 
-        // };
     }
 
     @Get(':id')
