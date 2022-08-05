@@ -37,4 +37,18 @@ export class JobsService {
     findAll(): Job[] {
         return this.jobs;
     }
+
+    create(): Job {
+        console.log(`Jobs: ${this.jobs.length}`);
+        const job : Job = {
+            id: Math.floor( Math.random() * 1000 ),
+            type: 'reindex',
+            started: null,
+            completed: null,
+            status: JobStatus.created
+        }
+        this.jobs.push(job);
+        console.log(`Job ${job} created`);
+        return job;
+    }
 }

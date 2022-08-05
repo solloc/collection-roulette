@@ -13,20 +13,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>1</td>
-                <td>reindex</td>
-                <td>111</td>
-                <td>222</td>
-                <td>completed</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>reindex</td>
-                <td>111</td>
-                <td>222</td>
-                <td>completed</td>
-            </tr>            
+                <tr>
+                    <td>1</td>
+                    <td>reindex</td>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>completed</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>reindex</td>
+                    <td>111</td>
+                    <td>222</td>
+                    <td>completed</td>
+                </tr>            
+            {{#each Jobs}}
+                <tr>
+                    <td>{{id}}</td>
+                    <td>{{type}}</td>
+                    <td>{{started}}</td>
+                    <td>{{completed}}</td>
+                    <td>{{status}}</td>
+                </tr>
+            {{/each}}
+
         </tbody>
     </table>    
 </div>
