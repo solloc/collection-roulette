@@ -38,7 +38,7 @@ export class JobsService {
         return this.jobs;
     }
 
-    create(): Job {
+    async create(): Promise<Job> {
         console.log(`Jobs: ${this.jobs.length}`);
         const job : Job = {
             id: Math.floor( Math.random() * 1000 ),
@@ -48,7 +48,15 @@ export class JobsService {
             status: JobStatus.created
         }
         this.jobs.push(job);
-        console.log(`Job ${job} created`);
+
+        console.log(`Job ${job.id} in progress`);
+
+        await setTimeout(async () => {
+            console.log(`Job ${job.id} completed`);    
+            job.status = JobStatus.completed;
+            job.completed = new Date();
+        }, 3000);        
+
         return job;
     }
 }

@@ -22,6 +22,13 @@ async function bootstrap() {
   app.setBaseViewsDir(join(__dirname, 'assets', 'views'));
   hbs.registerPartials(join(__dirname, 'assets', 'views', 'partials'));  
 
+  hbs.registerHelper('formatDate', (datetime: Date) => {
+    if (datetime) {
+      return datetime.toISOString();  
+    }
+    return '';    
+  });
+
   const port = process.env.PORT || 3333;
 
   await app.listen(port);

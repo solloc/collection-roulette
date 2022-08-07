@@ -12,14 +12,12 @@ export class JobsController {
     findAll() {
         const jobs = this.jobsService.findAll();
         console.log(`Jobs in controller: ${jobs.length}`);
-        return {
-            Jobs: jobs,
-        };
-    }
+        return { Jobs: jobs };
+    };
 
     @Post()
-    create(@Res() res : Response) {
-        const job = this.jobsService.create();
+    async create(@Res() res : Response) {
+        const job = await this.jobsService.create();
         job.started = new Date();
         // job.status = 
         return res.redirect(HttpStatus.FOUND, '/jobs');
