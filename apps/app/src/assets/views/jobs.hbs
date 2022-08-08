@@ -1,42 +1,48 @@
 <div class="container has-text-centered">
-    <div class="block">
-        <span class="title">Jobs</span>
+    <div class="card">
+        <header class="card-header">
+            <p class="card-header-title">
+                Jobs
+            </p>
+        </header>
+        <div class="card-content">
+            <table class="table is-striped mx-auto">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Type</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>reindex</td>
+                            <td>111</td>
+                            <td>222</td>
+                            <td>completed</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>reindex</td>
+                            <td>111</td>
+                            <td>222</td>
+                            <td>completed</td>
+                        </tr>            
+                    {{#each Jobs}}
+                        <tr>
+                            <td>{{id}}</td>
+                            <td>{{type}}</td>
+                            <td>{{formatDate started}}</td>
+                            <td>{{formatDate completed}}</td>
+                            <td>{{status}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>   
+        </div>
     </div>
-    <table class="table is-striped mx-auto">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Type</th>
-                <th>Start</th>
-                <th>End</th>
-                <th>Status</th>
-            </tr>
-        </thead>
-        <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>reindex</td>
-                    <td>111</td>
-                    <td>222</td>
-                    <td>completed</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>reindex</td>
-                    <td>111</td>
-                    <td>222</td>
-                    <td>completed</td>
-                </tr>            
-            {{#each Jobs}}
-                <tr>
-                    <td>{{id}}</td>
-                    <td>{{type}}</td>
-                    <td>{{formatDate started}}</td>
-                    <td>{{formatDate completed}}</td>
-                    <td>{{status}}</td>
-                </tr>
-            {{/each}}
-
-        </tbody>
-    </table>    
+ 
 </div>
