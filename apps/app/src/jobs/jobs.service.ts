@@ -17,31 +17,18 @@ class Job {
 @Injectable()
 export class JobsService {
 
-    private jobs : Job[] = [
-        {
-            id: 1, 
-            type: 'reindex', 
-            started: new Date('2022-08-04T01:01:01'), 
-            completed: new Date('2022-08-04T02:02:02'),
-            status: JobStatus.completed 
-        }, 
-        {
-            id: 2,
-            type: 'reindex',
-            started: new Date('2022-08-04T03:03:03'),
-            completed: null,
-            status: JobStatus.started
-        }        
-    ]
+    private jobs : Job[] = [];
 
     findAll(): Job[] {
-        return this.jobs;
+        return this.jobs.sort((job1, job2) => {
+            return job2.started.valueOf() - job1.started.valueOf();
+        });
     }
 
     async create(): Promise<Job> {
         console.log(`Jobs: ${this.jobs.length}`);
         const job : Job = {
-            id: Math.floor( Math.random() * 1000 ),
+            id: this.jobs.length + 1,
             type: 'reindex',
             started: null,
             completed: null,
