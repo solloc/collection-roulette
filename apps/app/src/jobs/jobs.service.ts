@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { PicturesService } from '../pictures/pictures.service';
 
 enum JobStatus {
     created = 'CREATED',
@@ -16,6 +17,8 @@ class Job {
 
 @Injectable()
 export class JobsService {
+
+    constructor (private picturesService : PicturesService) {}
 
     private jobs : Job[] = [];
 
@@ -37,6 +40,8 @@ export class JobsService {
         this.jobs.push(job);
 
         console.log(`Job ${job.id} in progress`);
+
+        await this.picturesService.reindex();
 
         await setTimeout(async () => {
             console.log(`Job ${job.id} completed`);    

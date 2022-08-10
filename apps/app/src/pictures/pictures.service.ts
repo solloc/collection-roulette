@@ -1,4 +1,8 @@
 import { Injectable } from '@nestjs/common';
+import { glob } from "glob";
+import { join } from 'path/posix';
+// import { globby } from 'globby';
+// import { micromatch } from "micromatch";
 
 class Picture {
     location: string;
@@ -13,12 +17,21 @@ export class PicturesService {
         { location : '/examples/andres-molina-umon_iZ7HIA-unsplash.jpg' }
     ];
 
+    protected data : Picture[] = [];
+
+    constructor () {
+        this.reindex();
+        if (this.data.length === 0) {
+            this.data = this.mockData;
+        }        
+    }
+
     getAll() : Picture[] {
-        return this.mockData;
+        return this.data;
     }
 
     getOne(index : number) : Picture {
-        return this.mockData[index];
+        return this.data[index];
     }
 
     getRandomIndex() : number {
@@ -26,6 +39,31 @@ export class PicturesService {
     }
 
     getCount() : number {
-        return this.mockData.length;
+        return this.data.length;
+    }
+
+    async reindex() {
+
+        // glob('apps/app/src/assets/data/**/*', (err, data) => {
+        //     const paths = data;
+        //     console.log(data);
+        // });
+
+        const paths = glob.sync(
+            'data/**/*', 
+            {
+                cwd: 'apps/app/src/assets',
+                nodir: true,
+            });
+
+        // console.log(paths);
+
+        this.data = paths.map((path) => {
+            return { location: join('/', path) };
+        })
+
+        // console.log(this.data);
+
+        return;
     }
 }

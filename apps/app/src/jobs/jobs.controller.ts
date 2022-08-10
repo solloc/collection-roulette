@@ -17,9 +17,16 @@ export class JobsController {
 
     @Post()
     async create(@Res() res : Response) {
-        const job = await this.jobsService.create();
-        job.started = new Date();
+    //    async () => {
+            const job = await this.jobsService.create();
+            job.started = new Date();        
+    //    }
+
         // job.status = 
         return res.redirect(HttpStatus.FOUND, '/jobs');
+        // res.status(HttpStatus.CREATED);
+        // res.location('/admin');
+        // return res;
+        // return res;
     }
 }
