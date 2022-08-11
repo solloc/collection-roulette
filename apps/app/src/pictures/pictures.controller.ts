@@ -8,18 +8,21 @@ export class PicturesController {
     constructor(private readonly picturesService : PicturesService) {}
 
     @Get()
-    findAll(@Query('orderBy') orderBy: string, @Res() response : Response) {
+    async findAll(@Query('orderBy') orderBy: string, @Res() response : Response) {
+
+        const randomId = await this.picturesService.getRandomId();
+        const count = await this.picturesService.getCount();
 
         if (orderBy && orderBy === 'random') {
-            const randomId = this.picturesService.getRandomIndex();
+            // const randomId = this.picturesService.getRandomIndex();            
             return response.redirect(HttpStatus.FOUND, `/pictures/${randomId}`);
         }
 
         return response.render(
             'pictures.hbs',
             { 
-                randomIndex : this.picturesService.getRandomIndex(),
-                count : this.picturesService.getCount() 
+                randomIndex : randomId,
+                count : count
             }
         );
     }
