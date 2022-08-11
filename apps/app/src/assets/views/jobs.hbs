@@ -1,6 +1,6 @@
 <div class="container has-text-centered">
     <div class="columns">
-        <div class="column"></div>
+        <div class="column is-hidden-mobile"></div>
         <div class="column center is-narrow">
             <div class="card">
                 <header class="card-header">
@@ -9,7 +9,8 @@
                     </p>
                 </header>
                 <div class="card-content">
-                    <table class="table is-striped mx-auto">
+
+                    <table class="table is-striped mx-auto is-hidden-mobile">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -31,10 +32,19 @@
                             {{/each}}
                         </tbody>
                     </table>   
+
+                    <div class="is-hidden-tablet">
+                        {{#each Jobs}}
+                            <div class="box">
+                                <p>{{id}}</p>
+                                <p>{{status}}</p>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
             </div>            
         </div>
-        <div class="column"></div>
+        <div class="column is-hidden-mobile"></div>
     </div>
 
 
