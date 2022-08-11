@@ -1,34 +1,42 @@
 <div class="container has-text-centered">
-    <div class="card">
-        <header class="card-header">
-            <p class="card-header-title">
-                Jobs
-            </p>
-        </header>
-        <div class="card-content">
-            <table class="table is-striped mx-auto">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Type</th>
-                        <th>Start</th>
-                        <th>End</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>   
-                    {{#each Jobs}}
-                        <tr>
-                            <td>{{id}}</td>
-                            <td>{{type}}</td>
-                            <td>{{formatDate started}}</td>
-                            <td>{{formatDate completed}}</td>
-                            <td>{{status}}</td>
-                        </tr>
-                    {{/each}}
-                </tbody>
-            </table>   
+    <div class="columns">
+        <div class="column"></div>
+        <div class="column center is-narrow">
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Jobs
+                    </p>
+                </header>
+                <div class="card-content">
+                    <table class="table is-striped mx-auto">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Type</th>
+                                <th>Start</th>
+                                <th>End</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>   
+                            {{#each Jobs}}
+                                <tr>
+                                    <td>{{id}}</td>
+                                    <td>{{type}}</td>
+                                    <td>{{formatDate started}}</td>
+                                    <td>{{formatDate completed}}</td>
+                                    <td>{{status}}</td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>   
+                </div>
+            </div>            
         </div>
+        <div class="column"></div>
     </div>
+
+
  
 </div>
