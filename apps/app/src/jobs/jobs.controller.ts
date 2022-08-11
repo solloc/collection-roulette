@@ -11,7 +11,7 @@ export class JobsController {
     @Render('jobs.hbs')
     findAll() {
         const jobs = this.jobsService.findAll();
-        console.log(`Jobs in controller: ${jobs.length}`);
+        // console.log(`Jobs in controller: ${jobs.length}`);
         return { Jobs: jobs };
     };
 

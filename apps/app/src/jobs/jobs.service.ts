@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PicturesService } from '../pictures/pictures.service';
 
 enum JobStatus {
@@ -18,9 +18,10 @@ class Job {
 @Injectable()
 export class JobsService {
 
-    constructor (private picturesService : PicturesService) {}
-
     private jobs : Job[] = [];
+    private readonly logger = new Logger(JobsService.name);
+
+    constructor (private picturesService : PicturesService) {}    
 
     findAll(): Job[] {
         return this.jobs.sort((job1, job2) => {
@@ -29,7 +30,7 @@ export class JobsService {
     }
 
     async create(): Promise<Job> {
-        console.log(`Jobs: ${this.jobs.length}`);
+        // console.log(`Jobs: ${this.jobs.length}`);
         const job : Job = {
             id: this.jobs.length + 1,
             type: 'reindex',
@@ -39,12 +40,15 @@ export class JobsService {
         }
         this.jobs.push(job);
 
-        console.log(`Job ${job.id} in progress`);
+        this.logger.log(`Job ${job.id} in progress`);
+
+        // console.log(`Job ${job.id} in progress`);
 
         await this.picturesService.reindex();
 
         await setTimeout(async () => {
-            console.log(`Job ${job.id} completed`);    
+            // console.log(`Job ${job.id} completed`);    
+            this.logger.log(`Job ${job.id} completed`);
             job.status = JobStatus.completed;
             job.completed = new Date();
         }, 3000);        
